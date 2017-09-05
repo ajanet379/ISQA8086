@@ -6,8 +6,8 @@ At the moment there is no software necessary to use this repository, nor is ther
 
 #### Information Seeking 09/06/2017
 
-  _1. http:/Github.com/MBWitz/ISQA8086/Trends in estimates of maternal mortality ratio (MMR; maternal deaths per 100,000 live births) 1990-2015.md_  
-  _2. http:/Github.com/MBWitz/ISQA8086/Doctorate Recipients from U.S. Universities: 2015.md_  
+  _1. Trends in estimates of maternal mortality ratio (MMR; maternal deaths per 100,000 live births) 1990-2015_  
+  _2. Doctorate Recipients from U.S. Universities: 2015.md_  
   _3. File Three_    
 
 #### Other Contents
