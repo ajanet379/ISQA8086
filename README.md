@@ -4,12 +4,13 @@ This is a repository for my assignments for ISQA 8086.
 
 At the moment there is no software necessary to use this repository, nor is there any data.
 
-#Information Seeking 09/06/2017
+#### Information Seeking 09/06/2017
+
 _Trends in estimates of maternal mortality ratio (MMR; maternal deaths per 100,000 live births) 1990-2015.md_  
 _Doctorate Recipients from U.S. Universities: 2015.md_  
 _File Three_  
 
-#Other Contents
+#### Other Contents
 _File Four_  
 _File Five_
 
