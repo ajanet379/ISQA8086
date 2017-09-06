@@ -6,9 +6,9 @@ At the moment there is no software necessary to use this repository, nor is ther
 
 #### Information Seeking 09/06/2017
 
-  1. Data set 1: _Trends in estimates of maternal mortality ratio (MMR; maternal deaths per 100,000 live births) 1990-2015_  
-  2. Data set 2: _Doctorate Recipients from U.S. Universities: 2015_  
-  3. Data set 3: _MyPyramid Food Raw Data_    
+  1. Data set 1: [_Trends in estimates of maternal mortality ratio (MMR; maternal deaths per 100,000 live births) 1990-2015_](https://github.com/MBWitz/ISQA8086/blob/master/Trends%20in%20estimates%20of%20maternal%20mortality%20ratio%20(MMR%3B%20maternal%20deaths%20per%20100%2C000%20live%20births)%201990-2015.md)  
+  2. Data set 2: [_Doctorate Recipients from U.S. Universities: 2015_]()  
+  3. Data set 3: [_MyPyramid Food Raw Data_]()    
 
 #### Other Contents
 _File Four_  
