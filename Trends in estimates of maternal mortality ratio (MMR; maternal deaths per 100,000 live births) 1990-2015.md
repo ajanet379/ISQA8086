@@ -53,5 +53,5 @@ countries have public healthcare and which do not.
 _Citation:_
 
 >Trends in estimates of maternal mortality ratio (MMR; maternal deaths per 100,000 live births) 1990-2015. (2015, November). Retrieved 
-from: https://data.unicef.org/topic/maternal-health/maternal-mortality/# Accessed 26 August, 2017.
+from: https://data.unicef.org/topic/maternal-health/maternal-mortality/. Accessed 26 August, 2017.
  
