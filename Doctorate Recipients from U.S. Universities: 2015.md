@@ -33,5 +33,6 @@ _This data could answer these questions:_
 _Citation:_
 
 >National Science Foundation, National Center for Science and Engineering Statistics. 2016. Doctorate Recipients from U.S. 
->Universities: 2015. Special Report NSF 17-306. Arlington, VA. Available at www.nsf.gov/statistics/2017/nsf17306/. Accessed 29 August, 2017.
+>Universities: 2015. Special Report NSF 17-306. Arlington, VA. Available at www.nsf.gov/statistics/2017/nsf17306/. Accessed on: 
+29 August 2017.
 
