@@ -34,4 +34,4 @@ diet: alcoholic beverages or candy? Which adds more fat: butter on your vegetabl
 _Citation:_
 
 Food and Nutrition Service, Department of Agriculture. 2014. MyPyramid Food Raw Data. Retrieved from: 
-https://catalog.data.gov/dataset/mypyramid-food-raw-data-f9ed6. 5 September 2017.
+https://catalog.data.gov/dataset/mypyramid-food-raw-data-f9ed6. Accessed on: 5 September 2017.
