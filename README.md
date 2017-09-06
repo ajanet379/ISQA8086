@@ -6,9 +6,9 @@ At the moment there is no software necessary to use this repository, nor is ther
 
 #### Information Seeking 09/06/2017
 
-  _1. Trends in estimates of maternal mortality ratio (MMR; maternal deaths per 100,000 live births) 1990-2015_  
-  _2. Doctorate Recipients from U.S. Universities: 2015.md_  
-  _3. File Three_    
+  1. Data set 1: _Trends in estimates of maternal mortality ratio (MMR; maternal deaths per 100,000 live births) 1990-2015_  
+  2. Data set 2: _Doctorate Recipients from U.S. Universities: 2015_  
+  3. Data set 3: _MyPyramid Food Raw Data_    
 
 #### Other Contents
 _File Four_  
