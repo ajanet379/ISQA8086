@@ -32,6 +32,14 @@ day, but there is no time listed for any data point.
 
 #### 2. Suggested Formatting:
 
+Decide how often data will be collected and if each month needs its own tab in a spreadsheet with each spreadsheet representing a year, or if each month needs its own spreadsheet, or if an entire year can be in one tab of a spreadsheet and subsequent years will go in subsequent tabs. Name the spreadsheet appropriately. For example if each month gets its own Excel file: RotiferData_062017.xls
+
+If multiple months or years are in each Excel file, but on separate tabs, name the tabs with the appropriate time period. For example if each month gets a tab in an Excel file and each file represents a year: RotiferData_2017.xls/June
+
+One page of each spreadsheet should include complete and detailed metadata. 
+
+Sample data storage layout:
+
 Date | Time | Station | Depth(m) | Temp(oC) | Species | Density(#/L) | Colony Size(mm) | Chla
 ---|---|:---:|---:|---:|:---:|---:|---:|:---:|
 6/5/2010|8:00|A|.5|15.2|cuni|72|2.12|3.4
