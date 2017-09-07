@@ -17,7 +17,7 @@ spreadsheets have separate columns for the separate species.
 asterik means or why the data is missing.  
 >c. There are data points listed in red, but no explanation for why they are red.  
 
-3. Not enough information was collected. Specifically, there are three measurements for each date, theoretically from different times of 
+3. Not enough information was recorded. Specifically, there are three measurements for each date, theoretically from different times of 
 day, but there is no time listed for any data point. 
 
 4. These spreadsheets contain some analysis that should not be included with the raw data. Examples:
@@ -26,12 +26,14 @@ day, but there is no time listed for any data point.
 >c. One spreadsheet has some extra information, Max Depth and Max Secchi listed at the top.  
 
 5. Metadata is not complete. Examples:
->a. Location of stations A and B. (not 'see  map in yellow notebook')  
+>a. Location of stations A and B. ('See  map in yellow notebook' is not sufficient)  
 >b. Scales of measurement used are not listed. Is temperature in Celsius or Fahrenheit? Is depth in meters?  
 >c. Each column of data should have an explanation in the metadata including scale and accuracy for numeric data, and explanations of abreviations for nominal.  
 
 #### 2. Suggested Formatting:
 
 Date | Time | Station | Depth(m) | Temp(oC) | Species | Density(#/L) | Colony Size(mm) | Chla
----|---|---|---|---|:---:|---|---|:---:|
-6/5/2010|8:00|A|.5|15.2|cuni|
+---|---|:---:|---:|---:|:---:|---:|---:|:---:|
+6/5/2010|8:00|A|.5|15.2|cuni|72|2.12|3.4
+6/5/2010|17:15|A|.5|15.7|cuni|70|2.25|3.2
+
