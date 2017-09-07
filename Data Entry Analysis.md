@@ -27,8 +27,8 @@ day, but there is no time listed for any data point.
 
 5. Metadata is not complete. Examples:
 >a. Location of stations A and B. ('See  map in yellow notebook' is not sufficient)  
->b. Scales of measurement used are not listed. Is temperature in Celsius or Fahrenheit? Is depth in meters?  
->c. Each column of data should have an explanation in the metadata including scale and accuracy for numeric data, and explanations of abreviations for nominal.  
+>b. Scales of measurement used and desired level of accuracy are not listed. Is temperature in Celsius or Fahrenheit? Is depth in meters? Should temperature be to nearest tenth? Depth to nearest meter? 
+>c. Each column of data should have an explanation in the metadata including scale and accuracy for numeric data, and explanations of acceptable abreviations for nominal.  
 
 #### 2. Suggested Formatting:
 
