@@ -28,6 +28,10 @@ day, but there is no time listed for any data point.
 5. Metadata is not complete. Examples:
 >a. Location of stations A and B. (not 'see  map in yellow notebook')  
 >b. Scales of measurement used are not listed. Is temperature in Celsius or Fahrenheit? Is depth in meters?  
->c. Each column of data should have an explanation in the metadata.  
+>c. Each column of data should have an explanation in the metadata including scale and accuracy for numeric data, and explanations of abreviations for nominal.  
 
 #### 2. Suggested Formatting:
+
+Date | Time | Station | Depth(m) | Temp(oC) | Species | Density(#/L) | Colony Size(mm) | Chla
+---|---|---|---|---|:---:|---|---|:---:|
+6/5/2010|8:00|A|.5|15.2|cuni|
