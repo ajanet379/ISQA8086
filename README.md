@@ -11,7 +11,7 @@ At the moment there is no software necessary to use this repository, nor is ther
   3. Data set 3: [_MyPyramid Food Raw Data_](https://github.com/MBWitz/ISQA8086/blob/master/MyPyramid%20Food%20Raw%20Data.md)    
 
 #### Data Entry Analysis 09/13/2017
-[Data Entry Analysis](  
+[_Data Entry Analysis_](https://github.com/MBWitz/ISQA8086/blob/master/Data%20Entry%20Analysis.md)  
 
 
 >Copyright 2017 MBWitz  
