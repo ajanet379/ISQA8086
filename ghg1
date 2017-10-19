@@ -1,16 +1,45 @@
 # Read the csv file:
 ghg <- read.csv("C:\\Users\\molly\\Documents\\School\\ISQA8086\\air_ghg_data.csv")
+
 # View a summary of the data:
 summary(ghg)
+
 # Create a subset of just CO2 values:
 ghg.sub <- ghg[ghg$SUBJECT == 'CO2', ]
-# Create a subset of CO2 values that are measured in Millions of Tons:
-ghg.sub2 <- ghg.sub[ghg.sub$MEASURE == 'MLN_TONNE', ]
-# Create subset of CO2 emissions by country:
-ghg.subUSA <-ghg.sub2[ghg.sub2$COUNTRY == 'USA', ]
-# plot the USA CO2 emissions over time:
-plot(ghg.subUSA$Value, type = "l")
 
+# Create a subset of CO2 set with CO2 that is measured in Millions of Tons:
+ghg.sub2 <- ghg.sub[ghg.sub$MEASURE == 'MLN_TONNE', ]
+
+# Create subsets of millions of tons CO2 emissions by country:
+ghg.subUSA <-ghg.sub2[ghg.sub2$COUNTRY == 'USA', ]
+
+# plot the USA CO2 emissions over time with year as labels on x-axis :
+plot(ghg.subUSA$Value, type = "l",  xaxt = "n")
+axis(1, at=1:55, labels=ghg.subUSA$TIME)
+
+# World subset and graph:
 ghg.subWLD <- ghg.sub2[ghg.sub2$COUNTRY == 'WLD',]
-plot(ghg.subWLD$Value, type = "l")
- 
+plot(ghg.subWLD$Value, type = "l", xaxt = "n")
+axis(1, at=1:44, labels=ghg.subWLD$TIME) 
+
+# OED subset and graph:
+ghg.subOED <- ghg.sub2[ghg.sub2$COUNTRY == 'OED',]
+plot(ghg.subOED$Value, type = "l", xaxt = "n")
+axis(1, at=1:44, labels=ghg.subOED$TIME)
+
+# Create subsets of millions of tons CO2 emissions by year:
+ghg.sub2014 <- ghg.sub2[ghg.sub2$TIME == 2014, ]
+
+# Rank the top 20 CO2 producers from 2014, omit top two (World and OED), store in top2014 dataframe:
+top2014 <- tail(head(ghg.sub2014[order(ghg.sub2014$Value, decreasing= T),], n = 22), n=20)
+
+# Create a barchart of top 20 CO2 producing nations:
+barplot(top2014$Value, col = rainbow(20), xaxt = "n")
+axis(1, at=1:20, labels=top2014$COUNTRY)
+
+# Rank and plot top 20 CO2 producers for 2010:
+ghg.sub2010<-ghg.sub2[ghg.sub2$TIME == 2010, ]
+top2010<-tail(head(ghg.sub2010[order(ghg.sub2010$Value, decreasing= T),], n = 22), n=20)
+barplot(top2010$Value, col = rainbow(20), xaxt = "n")
+axis(1, at=1:20, labels=top2010$COUNTRY)
+
