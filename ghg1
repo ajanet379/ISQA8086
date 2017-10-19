@@ -1,0 +1,16 @@
+# Read the csv file:
+ghg <- read.csv("C:\\Users\\molly\\Documents\\School\\ISQA8086\\air_ghg_data.csv")
+# View a summary of the data:
+summary(ghg)
+# Create a subset of just CO2 values:
+ghg.sub <- ghg[ghg$SUBJECT == 'CO2', ]
+# Create a subset of CO2 values that are measured in Millions of Tons:
+ghg.sub2 <- ghg.sub[ghg.sub$MEASURE == 'MLN_TONNE', ]
+# Create subset of CO2 emissions by country:
+ghg.subUSA <-ghg.sub2[ghg.sub2$COUNTRY == 'USA', ]
+# plot the USA CO2 emissions over time:
+plot(ghg.subUSA$Value, type = "l")
+
+ghg.subWLD <- ghg.sub2[ghg.sub2$COUNTRY == 'WLD',]
+plot(ghg.subWLD$Value, type = "l")
+ 
