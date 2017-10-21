@@ -3,6 +3,8 @@ ghg <- read.csv("C:\\Users\\molly\\Documents\\School\\ISQA8086\\air_ghg_data.csv
 
 # View a summary of the data:
 summary(ghg)
+# Summary shows that we do not have enough ghg data points to do meaningful analysis. We have far more data for CO2 emissions, so 
+# we will do the same analysis we planned but on CO2 emissions, which are the leading contributor to green house gases.
 
 # Create a subset of just CO2 values:
 ghg.sub <- ghg[ghg$SUBJECT == 'CO2', ]
@@ -48,5 +50,5 @@ axis(1, at=.5:9.5, labels=top2010$COUNTRY)
 rate <- 100*diff(ghg.sub2$Value)/ghg.sub2[-nrow(ghg.sub2),]$Value
 #plot(df[-nrow((ghg.sub2),]$TIME,rate,type="l",xlab="TIME",ylab="Pct. Change",main="Rate of Change")
 
-# Calculate Per Capita CO2 Emissions:
-CO2PerCap <- (ghg.sub2$Value/ghg.sub2$Population)*1000000 
+# Calculate Per Capita CO2 Emissions and include in ghg.sub2:
+ghg.sub2$CO2percap <- with(ghg.sub2, (ghg.sub2$Value/ghg.sub2$Population)*1000000)
