@@ -14,17 +14,17 @@ ghg.sub2 <- ghg.sub[ghg.sub$MEASURE == 'MLN_TONNE', ]
 ghg.subUSA <-ghg.sub2[ghg.sub2$COUNTRY == 'USA', ]
 
 # plot the USA CO2 emissions over time with year as labels on x-axis :
-plot(ghg.subUSA$Value, type = "l",  xaxt = "n")
+plot(ghg.subUSA$Value,  main="USA CO2 Production", type = "l",  xaxt = "n")
 axis(1, at=1:55, labels=ghg.subUSA$TIME)
 
 # World subset and graph:
 ghg.subWLD <- ghg.sub2[ghg.sub2$COUNTRY == 'WLD',]
-plot(ghg.subWLD$Value, type = "l", xaxt = "n")
+plot(ghg.subWLD$Value, main="World CO2 Production", type = "l", xaxt = "n")
 axis(1, at=1:44, labels=ghg.subWLD$TIME) 
 
 # OED subset and graph:
 ghg.subOED <- ghg.sub2[ghg.sub2$COUNTRY == 'OED',]
-plot(ghg.subOED$Value, type = "l", xaxt = "n")
+plot(ghg.subOED$Value,  main="OECD Member CO2 Production", type = "l", xaxt = "n")
 axis(1, at=1:44, labels=ghg.subOED$TIME)
 
 # Create subsets of millions of tons CO2 emissions by year:
@@ -34,12 +34,19 @@ ghg.sub2014 <- ghg.sub2[ghg.sub2$TIME == 2014, ]
 top2014 <- tail(head(ghg.sub2014[order(ghg.sub2014$Value, decreasing= T),], n = 22), n=20)
 
 # Create a barchart of top 20 CO2 producing nations:
-barplot(top2014$Value, col = rainbow(20), xaxt = "n")
-axis(1, at=1:20, labels=top2014$COUNTRY)
+barplot(top2014$Value, main="Top CO2 Producing Countries 2014", col = rainbow(20), space=0)
+axis(1, at=.5:19.5, labels=top2014$COUNTRY)
 
 # Rank and plot top 20 CO2 producers for 2010:
 ghg.sub2010<-ghg.sub2[ghg.sub2$TIME == 2010, ]
 top2010<-tail(head(ghg.sub2010[order(ghg.sub2010$Value, decreasing= T),], n = 22), n=20)
-barplot(top2010$Value, col = rainbow(20), xaxt = "n")
-axis(1, at=1:20, labels=top2010$COUNTRY)
+barplot(top2010$Value, main="Top CO2 Producing Countries 2010", col = rainbow(20), space = 0)
+axis(1, at=.5:9.5, labels=top2010$COUNTRY)
 
+
+# Calculate rate of change:
+rate <- 100*diff(ghg.sub2$Value)/ghg.sub2[-nrow(ghg.sub2),]$Value
+#plot(df[-nrow((ghg.sub2),]$TIME,rate,type="l",xlab="TIME",ylab="Pct. Change",main="Rate of Change")
+
+# Calculate Per Capita CO2 Emissions:
+CO2PerCap <- (ghg.sub2$Value/ghg.sub2$Population)*1000000 
