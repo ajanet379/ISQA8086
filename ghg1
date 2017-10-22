@@ -12,7 +12,34 @@ ghg.sub <- ghg[ghg$SUBJECT == 'CO2', ]
 # Create a subset of CO2 set with CO2 that is measured in Millions of Tons:
 ghg.sub2 <- ghg.sub[ghg.sub$MEASURE == 'MLN_TONNE', ]
 
-# Create subsets of millions of tons CO2 emissions by country:
+# Create subsets of millions of tons CO2 emissions by year for 2014:
+ghg.sub2014 <- ghg.sub2[ghg.sub2$TIME == 2014, ]
+
+# Rank the top 20 CO2 producers from 2014, omit top two (World and OED), store in top2014 dataframe:
+top2014 <- tail(head(ghg.sub2014[order(ghg.sub2014$Value, decreasing= T),], n = 22), n=20)
+
+# Create a barchart of top 20 CO2 producing nation for 2014:
+barplot(top2014$Value, main="Top CO2 Producing Countries 2014", col = rainbow(20), space=0)
+axis(1, at=.5:19.5, labels=top2014$COUNTRY)
+
+# Rank and plot top 20 CO2 producers for 2010:
+ghg.sub2010<-ghg.sub2[ghg.sub2$TIME == 2010, ]
+top2010<-tail(head(ghg.sub2010[order(ghg.sub2010$Value, decreasing= T),], n = 22), n=20)
+barplot(top2010$Value, main="Top CO2 Producing Countries 2010", col = rainbow(20), space = 0)
+axis(1, at=.5:9.5, labels=top2010$COUNTRY)
+
+# Calculate Per Capita CO2 Emissions and include in ghg.sub2:
+ghg.sub2$CO2percap <- with(ghg.sub2, (ghg.sub2$Value/ghg.sub2$Population)*1000000)
+
+# Rank the top 50 CO2 Per Capita producers from 2014, store in top2014PC dataframe:
+top2014PC <-head(ghg.sub2014[order(ghg.sub2014$Value, decreasing= T),], n = 50)
+
+# We observed that the top countries for per capita use were not the same as the top countries for volume of CO2 emissions. 
+# We had planned on focusing our analysis on the countries with the highest volumes but since many small countries with relatively
+# low volumes actually have high per capita consumption, we want a way to include their numbers in the analysis. We will therfore
+# do some analysis based on region. 
+
+# Create subsets of millions of tons CO2 emissions for USA:
 ghg.subUSA <-ghg.sub2[ghg.sub2$COUNTRY == 'USA', ]
 
 # plot the USA CO2 emissions over time with year as labels on x-axis :
@@ -29,26 +56,10 @@ ghg.subOED <- ghg.sub2[ghg.sub2$COUNTRY == 'OED',]
 plot(ghg.subOED$Value,  main="OECD Member CO2 Production", type = "l", xaxt = "n")
 axis(1, at=1:44, labels=ghg.subOED$TIME)
 
-# Create subsets of millions of tons CO2 emissions by year:
-ghg.sub2014 <- ghg.sub2[ghg.sub2$TIME == 2014, ]
-
-# Rank the top 20 CO2 producers from 2014, omit top two (World and OED), store in top2014 dataframe:
-top2014 <- tail(head(ghg.sub2014[order(ghg.sub2014$Value, decreasing= T),], n = 22), n=20)
-
-# Create a barchart of top 20 CO2 producing nations:
-barplot(top2014$Value, main="Top CO2 Producing Countries 2014", col = rainbow(20), space=0)
-axis(1, at=.5:19.5, labels=top2014$COUNTRY)
-
-# Rank and plot top 20 CO2 producers for 2010:
-ghg.sub2010<-ghg.sub2[ghg.sub2$TIME == 2010, ]
-top2010<-tail(head(ghg.sub2010[order(ghg.sub2010$Value, decreasing= T),], n = 22), n=20)
-barplot(top2010$Value, main="Top CO2 Producing Countries 2010", col = rainbow(20), space = 0)
-axis(1, at=.5:9.5, labels=top2010$COUNTRY)
 
 
 # Calculate rate of change:
 rate <- 100*diff(ghg.sub2$Value)/ghg.sub2[-nrow(ghg.sub2),]$Value
 #plot(df[-nrow((ghg.sub2),]$TIME,rate,type="l",xlab="TIME",ylab="Pct. Change",main="Rate of Change")
 
-# Calculate Per Capita CO2 Emissions and include in ghg.sub2:
-ghg.sub2$CO2percap <- with(ghg.sub2, (ghg.sub2$Value/ghg.sub2$Population)*1000000)
+
