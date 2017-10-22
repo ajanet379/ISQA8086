@@ -39,6 +39,9 @@ top2014PC <-head(ghg.sub2014[order(ghg.sub2014$Value, decreasing= T),], n = 50)
 # low volumes actually have high per capita consumption, we want a way to include their numbers in the analysis. We will therfore
 # do some analysis based on region. 
 
+# Aggregate 2014 CO2 Emissions by Region:
+Region2014 <- with(ghg.sub2014, (aggregate(ghg.sub2014$Value, by=list(Region=ghg.sub2014$Region), FUN=sum)))
+
 # Create subsets of millions of tons CO2 emissions for USA:
 ghg.subUSA <-ghg.sub2[ghg.sub2$COUNTRY == 'USA', ]
 
