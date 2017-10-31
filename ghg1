@@ -127,6 +127,17 @@ plot(ghg.subCHN$Value,  main="China CO2 Production", type = "l",  xaxt = "n")
 axis(1, at=1:44, labels=ghg.subCHN$TIME)
 # Note that Chinese CO2 production drastically increased in the early 2000's
 
+ghg.subUSA <-ghg.sub2[ghg.sub2$COUNTRY == 'USA', ]
+ghg.subIND <-ghg.sub2[ghg.sub2$COUNTRY == 'IND', ]
+ghg.subRUS <-ghg.sub2[ghg.sub2$COUNTRY == 'RUS', ]
+ghg.subDEU <-ghg.sub2[ghg.sub2$COUNTRY == 'DEU', ]
+ghg.subJPN <-ghg.sub2[ghg.sub2$COUNTRY == 'JPN', ]
+ghg.subGBR <-ghg.sub2[ghg.sub2$COUNTRY == 'GBR', ]
+
+top7list <- c("USA", "CHN", "DEU","RUS", "IND", "GBR","JPN")
+top7data <- ghg.sub2$COUNTRY[top7list]
+
+
 # World subset and graph:
 ghg.subWLD <- ghg.sub2[ghg.sub2$COUNTRY == 'WLD',]
 plot(ghg.subWLD$Value, main="World CO2 Production", type = "l", xaxt = "n")
