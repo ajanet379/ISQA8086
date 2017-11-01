@@ -80,7 +80,7 @@ axis(1, at=.5:19.5, labels=top1971$COUNTRY)
 ghg.sub2$CO2percap <- with(ghg.sub2, (ghg.sub2$Value/ghg.sub2$Population)*1000000)
 
 # Rank the top 50 CO2 Per Capita producers from 2014, store in top2014PC dataframe:
-top2014PC <-head(ghg.sub2014[order(ghg.sub2014$Value, decreasing= T),], n = 50)
+top2014PC <-head(ghg.sub2014[order(ghg.sub2014$CO2percap, decreasing= T),], n = 50)
 
 # We observed that the top countries for per capita use were not the same as the top countries for volume of CO2 emissions. 
 # We had planned on focusing our analysis on the countries with the highest volumes but since many small countries with relatively
@@ -127,15 +127,33 @@ plot(ghg.subCHN$Value,  main="China CO2 Production", type = "l",  xaxt = "n")
 axis(1, at=1:44, labels=ghg.subCHN$TIME)
 # Note that Chinese CO2 production drastically increased in the early 2000's
 
-ghg.subUSA <-ghg.sub2[ghg.sub2$COUNTRY == 'USA', ]
 ghg.subIND <-ghg.sub2[ghg.sub2$COUNTRY == 'IND', ]
-ghg.subRUS <-ghg.sub2[ghg.sub2$COUNTRY == 'RUS', ]
-ghg.subDEU <-ghg.sub2[ghg.sub2$COUNTRY == 'DEU', ]
-ghg.subJPN <-ghg.sub2[ghg.sub2$COUNTRY == 'JPN', ]
-ghg.subGBR <-ghg.sub2[ghg.sub2$COUNTRY == 'GBR', ]
+plot(ghg.subIND$Value,  main="India CO2 Production", type = "l",  xaxt = "n")
+axis(1, at=1:44, labels=ghg.subIND$TIME)
 
+ghg.subRUS <-ghg.sub2[ghg.sub2$COUNTRY == 'RUS', ]
+plot(ghg.subRUS$Value,  main="Russia CO2 Production", type = "l",  xaxt = "n")
+axis(1, at=1:25, labels=ghg.subRUS$TIME)
+
+ghg.subDEU <-ghg.sub2[ghg.sub2$COUNTRY == 'DEU', ]
+plot(ghg.subDEU$Value,  main="Germany CO2 Production", type = "l",  xaxt = "n")
+axis(1, at=1:55, labels=ghg.subDEU$TIME)
+
+ghg.subJPN <-ghg.sub2[ghg.sub2$COUNTRY == 'JPN', ]
+plot(ghg.subJPN$Value,  main="Japan CO2 Production", type = "l",  xaxt = "n")
+axis(1, at=1:55, labels=ghg.subJPN$TIME)
+
+ghg.subGBR <-ghg.sub2[ghg.sub2$COUNTRY == 'GBR', ]
+plot(ghg.subGBR$Value,  main="United Kingdom CO2 Production", type = "l",  xaxt = "n")
+axis(1, at=1:55, labels=ghg.subGBR$TIME)
+
+# Attempting to graph all top 7 countries on the same graph...not yet successful
 top7list <- c("USA", "CHN", "DEU","RUS", "IND", "GBR","JPN")
 top7data <- ghg.sub2$COUNTRY[top7list]
+# Another attempt...still unsuccessful
+plot(ghg.subUSA$Value~ghg.subUSA$TIME,type="l",col = cl[3], xlab = "Time", ylab = "CO2", main = "CO2 Emissions")
+lines(ghg.subDEU$TIME,ghg.subDEU$Value,col = cl[1],type = 'l')
+lines(ghg.subGBR$TIME,ghg.subGBR$Value,col = cl[2],type = 'l')
 
 
 # World subset and graph:
