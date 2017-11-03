@@ -1,0 +1,5 @@
+
+#Create a subset with 7 countries who have been in top five since 1971:
+top7data<- air_ghg[air_ghg$COUNTRY=="USA"|air_ghg$COUNTRY=="CHN"|air_ghg$COUNTRY=="DEU"|air_ghg$COUNTRY=="RUS"|air_ghg$COUNTRY=="IND"|air_ghg$COUNTRY=="GBR"|air_ghg$COUNTRY=="JPN",]
+#Include only CO2 measured in millions of tons, since 1971 (because several countries have no data prior)
+top7CO2<- top7data[top7data$SUBJECT=="CO2"&top7data$MEASURE=="MLN_TONNE"&top7data$TIME>=1971,]
