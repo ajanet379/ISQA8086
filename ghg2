@@ -3,3 +3,12 @@
 top7data<- air_ghg[air_ghg$COUNTRY=="USA"|air_ghg$COUNTRY=="CHN"|air_ghg$COUNTRY=="DEU"|air_ghg$COUNTRY=="RUS"|air_ghg$COUNTRY=="IND"|air_ghg$COUNTRY=="GBR"|air_ghg$COUNTRY=="JPN",]
 #Include only CO2 measured in millions of tons, since 1971 (because several countries have no data prior)
 top7CO2<- top7data[top7data$SUBJECT=="CO2"&top7data$MEASURE=="MLN_TONNE"&top7data$TIME>=1971,]
+
+# Line plots, different colors for each country:
+ require(ggplot2)
+ggplot(data = top7CO2, aes(x = TIME, y = Value, group = COUNTRY)) +
+    xlab("Year") + ylab("Millions of Tons") +
+    geom_line(aes(color = COUNTRY)) 
+    
+    
+    
