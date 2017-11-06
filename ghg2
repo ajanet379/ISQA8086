@@ -34,8 +34,8 @@ ggplot(data = top7CO2, aes(x = TIME, y = Value, group = COUNTRY)) +
 top7CO2$CO2percap <- with(top7CO2, (top7CO2$Value/top7CO2$Population)*1000000)   
 
 # Calculate per capita CO2 emissions for top7 and plot them:    
-> top7CO2$CO2percap <- with(top7CO2, (top7CO2$Value/top7CO2$Population)*1000000)    
-> ggplot(data = top7CO2, aes(x = TIME, y = CO2percap, group = COUNTRY)) +
+top7CO2$CO2percap <- with(top7CO2, (top7CO2$Value/top7CO2$Population)*1000000)    
+ggplot(data = top7CO2, aes(x = TIME, y = CO2percap, group = COUNTRY)) +
      xlab("Year") + ylab("CO2 Per Capita") + 
      ggtitle("CO2 Emissions per Capita", subtitle="Top 7 Producers") + 
      geom_line(aes(color = COUNTRY))    
@@ -68,7 +68,7 @@ ggplot(data = ghg.region, aes(x = TIME, y = CO2percap, group = Region)) +
  # These plots confirm that the disproportionately high rates of CO2 emissions in the United States and China cause the regions that
  # contain these countries to mirror their usage patterns.
  # Regions that are primarily made up of less industrial economies have much lower emissions overall and per capita, as would be
- # as expected. However, many of these regions are showing growth of their emissions, perhaps reflecting the relocation of much 
+ # expected. However, many of these regions are showing growth of their emissions, perhaps reflecting the relocation of much 
  # manufacturing out of industrialized nations like the USA into less developed economies with laxer environmental regulation.
  
  
