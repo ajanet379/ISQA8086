@@ -31,7 +31,8 @@ ggplot(data = top7CO2, aes(x = TIME, y = Value, group = COUNTRY)) +
  # while Germany had a decrease, causing them to switch places in the rankings.
  
 # Calculate per capita CO2 emissions for top7 and plot them:    
-top7CO2$CO2percap <- with(top7CO2, (top7CO2$Value/top7CO2$Population)*1000000)    
+top7CO2$CO2percap <- with(top7CO2, (top7CO2$Value/top7CO2$Population)*1000000)   
+
 # Calculate per capita CO2 emissions for top7 and plot them:    
 > top7CO2$CO2percap <- with(top7CO2, (top7CO2$Value/top7CO2$Population)*1000000)    
 > ggplot(data = top7CO2, aes(x = TIME, y = CO2percap, group = COUNTRY)) +
@@ -44,4 +45,33 @@ top7CO2$CO2percap <- with(top7CO2, (top7CO2$Value/top7CO2$Population)*1000000)
 # are growing slowly, and China grew quite rapidly in the last two decades. Russia has not exhibited a consistent pattern, but their
 # CO2 emissions per capita are consistently among the highest. 
 
+# Summarize CO2 Emissions by Region, eliminating OECD member nation data and World Data:
+ghg.sub3<-ghg.sub2[ghg.sub2$COUNTRY!="WLD"|ghg.sub2$COUNTRY!="OED",]
+ghg.region<- with(ghg.sub3, (aggregate(list(Population=ghg.sub3$Population,Value=ghg.sub3$Value), by=list(Region=ghg.sub3$Region, 
+TIME=ghg.sub3$TIME), FUN=sum)))
 
+# Calculate per capita emissions by region:
+ghg.region$CO2percap <- with(ghg.region, (ghg.region$Value/ghg.region$Population)*1000000)
+
+# Graph CO2 emissions by region and per Capita by region starting in 1971:
+ghg.region<-ghg.region[ghg.region$TIME>=1971,]
+ggplot(data = ghg.region, aes(x = TIME, y = Value, group = Region)) +
+    xlab("Year") + ylab("Millions of Tons") +
+    ggtitle("Total CO2 Emissions", subtitle="By Region") +
+    geom_line(aes(color = Region))
+
+ggplot(data = ghg.region, aes(x = TIME, y = CO2percap, group = Region)) +
+     xlab("Year") + ylab("CO2 Per Capita") + 
+     ggtitle("CO2 Emissions per Capita", subtitle="Global Regions") + 
+     geom_line(aes(color = Region))
+ 
+ # These plots confirm that the disproportionately high rates of CO2 emissions in the United States and China cause the regions that
+ # contain these countries to mirror their usage patterns.
+ # Regions that are primarily made up of less industrial economies have much lower emissions overall and per capita, as would be
+ # as expected. However, many of these regions are showing growth of their emissions, perhaps reflecting the relocation of much 
+ # manufacturing out of industrialized nations like the USA into less developed economies with laxer environmental regulation.
+ 
+ 
+ 
+ 
+ 
