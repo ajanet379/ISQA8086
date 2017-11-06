@@ -1,17 +1,47 @@
+# Read data file:
+ghg <- read.csv("C:\\Users\\molly\\Documents\\School\\ISQA8086\\air_ghg_data_w_regions.csv")
 
-#Create a subset with 7 countries who have been in top five since 1971:
-top7data<- air_ghg[air_ghg$COUNTRY=="USA"|air_ghg$COUNTRY=="CHN"|air_ghg$COUNTRY=="DEU"|air_ghg$COUNTRY=="RUS"|air_ghg$COUNTRY=="IND"|air_ghg$COUNTRY=="GBR"|air_ghg$COUNTRY=="JPN",]
-#Include only CO2 measured in millions of tons, since 1971 (because several countries have no data prior)
-top7CO2<- top7data[top7data$SUBJECT=="CO2"&top7data$MEASURE=="MLN_TONNE"&top7data$TIME>=1971,]
+# Create a subset of just CO2 values:
+ghg.sub <- ghg[ghg$SUBJECT == 'CO2', ]
+ 
+# Create a subset of CO2 set with CO2 that is measured in Millions of Tons:
+ghg.sub2 <- ghg.sub[ghg.sub$MEASURE == 'MLN_TONNE', ]
 
-# Line plots, different colors for each country:
+#Create a subset with 7 countries who have been in top five since 1971 (checked ten dates at approximately 5 year 
+# intervals between 1971 and 2014):
+top7data<- ghg.sub2[ghg.sub2$COUNTRY=="USA"|ghg.sub2$COUNTRY=="CHN"|ghg.sub2$COUNTRY=="DEU"|ghg.sub2$COUNTRY=="RUS"|ghg.sub2$COUNTRY=="IND"|ghg.sub2$COUNTRY=="GBR"|ghg.sub2$COUNTRY=="JPN",]
+
+#Include only CO2 measured since 1971 (because several countries have no data prior)
+top7CO2<- top7data[top7data$TIME>=1971,]
+
+# Line plots of CO2 emissions in top 7 countries, different color for each country:
  require(ggplot2)
 ggplot(data = top7CO2, aes(x = TIME, y = Value, group = COUNTRY)) +
     xlab("Year") + ylab("Millions of Tons") +
+    ggtitle("Total CO2 Emissions", subtitle="Top 7 Producers") +
     geom_line(aes(color = COUNTRY)) 
-    
+ 
+ # This plot shows that China's CO2 production has seen a sharp increase in the last decade and they produce, by far, the most CO2
+ # emissions. China's growth looks like a steep exponential curve until approximately 2009, and for the last five years, while they 
+ # are still exhibiting growth, the concavity of the curve changed direction, indicating a slower growth rate. 
+ # The chart also shows that the USA's emissions are consistently much higher than the other countries in the top seven. 
+ # India is also seeing rapid growth in CO2 emissions, going from 7th place in 1970 to third in 2014. 
+ # Russia's data starts in 1990 (after the collapse of communism in 1989) 
+ # Japan, Germany, and Great Britain have similar and relatively consistent emissions patterns, though Japan had a slight increase
+ # while Germany had a decrease, causing them to switch places in the rankings.
+ 
 # Calculate per capita CO2 emissions for top7 and plot them:    
 top7CO2$CO2percap <- with(top7CO2, (top7CO2$Value/top7CO2$Population)*1000000)    
-ggplot(data = top7CO2, aes(x = TIME, y = CO2percap, group = COUNTRY)) +
-    xlab("Year") + ylab("CO2 Per Capita") +
-    geom_line(aes(color = COUNTRY))    
+# Calculate per capita CO2 emissions for top7 and plot them:    
+> top7CO2$CO2percap <- with(top7CO2, (top7CO2$Value/top7CO2$Population)*1000000)    
+> ggplot(data = top7CO2, aes(x = TIME, y = CO2percap, group = COUNTRY)) +
+     xlab("Year") + ylab("CO2 Per Capita") + 
+     ggtitle("CO2 Emissions per Capita", subtitle="Top 7 Producers") + 
+     geom_line(aes(color = COUNTRY))    
+
+# When considering per capita CO2 emissions, the USA is consistently significantly higher than any other country of the top 7 
+# CO2 emissions producing countries. The USA, Germany, and Great Britain exhibit decreasing trend over time, while Japan and India
+# are growing slowly, and China grew quite rapidly in the last two decades. Russia has not exhibited a consistent pattern, but their
+# CO2 emissions per capita are consistently among the highest. 
+
+
