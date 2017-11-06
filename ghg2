@@ -1,3 +1,7 @@
+# Q1:
+# Which countries and regions contribute the most CO2 emissions, both on a total volume basis and 
+# from a per capita perspective? Do the top offenders have similar patterns of increasing and decreasing # emissions?
+
 # Read data file:
 ghg <- read.csv("C:\\Users\\molly\\Documents\\School\\ISQA8086\\air_ghg_data_w_regions.csv")
 
@@ -70,6 +74,8 @@ ggplot(data = ghg.region, aes(x = TIME, y = CO2percap, group = Region)) +
  # Regions that are primarily made up of less industrial economies have much lower emissions overall and per capita, as would be
  # expected. However, many of these regions are showing growth of their emissions, perhaps reflecting the relocation of much 
  # manufacturing out of industrialized nations like the USA into less developed economies with laxer environmental regulation.
+ # The regions that have been the top four since 1971 have seen similar decrease patterns for the last decade in both total CO2 
+ # emissions and per capita emissions.
  
  
  
