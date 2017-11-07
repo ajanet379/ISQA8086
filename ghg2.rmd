@@ -3,7 +3,7 @@ title: "DataSurfersQ1"
 output: html_document
 ---
 ```{r}
-ghg <- read.csv("C:\\Users\\molly\\Documents\\School\\ISQA8086\\air_ghg_data_w_regions.csv")
+ghg <- read.csv("https://github.com/MBWitz/DataSurfers/blob/master/air_ghg_data_w_regions.csv")
 ```
 
 #### Create a subset of just CO2 values:
